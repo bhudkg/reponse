@@ -1,4 +1,3 @@
-<!-- index.html hosted on GitHub Pages -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,13 +7,14 @@
     <h2>✅ Report Viewed</h2>
 
     <script>
-      // Get the user from the URL query parameter
+      // Extract query parameters
       const params = new URLSearchParams(window.location.search);
       const user = params.get('user') || 'unknown';
+      const report = params.get('report') || 'unspecified';
 
-      // Send it to your backend
-      fetch(`http://127.0.0.1:8000/alert?user=${encodeURIComponent(user)}`)
-        .then(res => console.log("Alert sent for", user))
+      // Send both to backend
+      fetch(`http://127.0.0.1:8000/alert?user=${encodeURIComponent(user)}&report=${encodeURIComponent(report)}`)
+        .then(res => console.log(`Alert sent for ${user}, report: ${report}`))
         .catch(err => console.error("Failed to send alert"));
     </script>
   </body>
