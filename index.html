@@ -6,9 +6,15 @@
   </head>
   <body>
     <h2>✅ Report Viewed</h2>
+
     <script>
-      fetch("http://127.0.0.1:8000/alert?user=deepak")
-        .then(res => console.log("Alert sent"))
+      // Get the user from the URL query parameter
+      const params = new URLSearchParams(window.location.search);
+      const user = params.get('user') || 'unknown';
+
+      // Send it to your backend
+      fetch(`http://127.0.0.1:8000/alert?user=${encodeURIComponent(user)}`)
+        .then(res => console.log("Alert sent for", user))
         .catch(err => console.error("Failed to send alert"));
     </script>
   </body>
