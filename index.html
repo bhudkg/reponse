@@ -1,0 +1,15 @@
+<!-- index.html hosted on GitHub Pages -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Acknowledge Report</title>
+  </head>
+  <body>
+    <h2>✅ Report Viewed</h2>
+    <script>
+      fetch("https://your-backend.com/alert?user=deepak")
+        .then(res => console.log("Alert sent"))
+        .catch(err => console.error("Failed to send alert"));
+    </script>
+  </body>
+</html>
